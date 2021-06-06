@@ -4,10 +4,38 @@ dependency:
 driver:
   name: docker
 platforms:
-  - name: instance
-    image: docker.io/pycontribs/centos:8
+  - name: centos8
+    image: diquzart/ansible-systemd-centos
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    command: "/lib/systemd/systemd"
+    privileged: true
+    pre_build_image: true
+  - name: ubuntu2004
+    image: diquzart/ansible-systemd-ubuntu
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    command: "/lib/systemd/systemd"
+    privileged: true
+    pre_build_image: true
+  - name: debian10
+    image: diquzart/ansible-systemd-debian
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    command: "/lib/systemd/systemd"
+    privileged: true
     pre_build_image: true
 provisioner:
   name: ansible
+  config_options:
+    defaults:
+      interpreter_python: auto_silent
+      callback_whitelist: profile_tasks, timer, yaml
+    ssh_connection:
+      pipelining: false
 verifier:
-  name: ansible
+  name: testinfra
+lint: |
+  set -e
+  yamllint .
+  ansible-lint .

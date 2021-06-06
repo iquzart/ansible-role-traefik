@@ -1,6 +1,9 @@
 ---
 - name: Converge
-  hosts: all
+  hosts: 
+    - ubuntu2004
+    - debian10
+    - centos8
   tasks:
     - name: "Include ansible-role-traefik"
       include_role:
