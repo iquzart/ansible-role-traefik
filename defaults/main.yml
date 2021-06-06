@@ -1,2 +1,21 @@
 ---
 # defaults file for ansible-role-traefik
+
+
+traefik_version: v2.2.1
+traefik_install_dir: /opt/containers/traefik
+traefik_domain_name: example.com
+
+traefik_log_level: WARN                          # (Default: error) DEBUG, INFO, WARN, ERROR, FATAL, PANIC
+
+traefik_check_new_version: false
+traefik_send_anonymous_usage: false
+traefik_api_dashboard: true
+traefik_letsencrypt_email: iquzart@hotmail.com
+traefik_auth:
+    admin: $2y$10$ah21mM.4UzSRSzEiKQx0gu7weRmYKur6ItMtUjOzIEofdznhLBWkW
+    appadmin: $2y$10$gwQ2/it6NaXkKkih8X4cqegbGmsMiTOwaYAhOIZ4RrK59V9ZcE.sm
+
+traefik_ip_white_list: 127.0.0.1/32
+##traefik_
+##traefik_
