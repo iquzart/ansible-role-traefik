@@ -21,7 +21,7 @@
     - packages
     - pip
 
-- name: Create a network
+- name: Create docker network for proxy
   docker_network:
     name: proxy
   tags:
@@ -40,3 +40,13 @@
     - configure
     - traefik
     - files
+
+- name: Start traefik container with docker-compose
+  command: /usr/local/bin/docker-compose up -d
+  args:
+    chdir: "{{ traefik_install_dir }}"
+  tags:
+    - docker-compose
+    - traefik
+    - start
+    - skip_ansible_lint

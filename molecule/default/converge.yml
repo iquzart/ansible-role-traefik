@@ -4,8 +4,10 @@
     - ubuntu2004
     - debian10
   roles:
-    - role: iquzart.docker
-  tasks:
-    - name: "Include ansible-role-traefik"
-      include_role:
-        name: "ansible-role-traefik"
+    - iquzart.docker 
+    - ansible-role-traefik
+
+  #tasks:
+  #  - name: "Include ansible-role-traefik"
+  #    include_role:
+  #      name: "ansible-role-traefik"

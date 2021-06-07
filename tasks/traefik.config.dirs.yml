@@ -33,3 +33,4 @@
     - configure
     - traefik
     - directories
+    - molecule-idempotence-notest
