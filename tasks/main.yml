@@ -45,3 +45,8 @@
   command: /usr/local/bin/docker-compose up -d
   args:
     chdir: "{{ traefik_install_dir }}"
+  tags:
+    - docker-compose
+    - traefik
+    - start
+    - skip_ansible_lint
