@@ -3,6 +3,8 @@
   hosts: 
     - ubuntu2004
     - debian10
+  roles:
+    - role: iquzart.docker    
   tasks:
     - name: "Include ansible-role-traefik"
       include_role:

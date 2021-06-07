@@ -5,9 +5,9 @@
   apt:
     name:
       - python3-pip
-    state: latest
+    state: present
     update_cache: yes
-    cache_valid_time: "600"    
+    cache_valid_time: "600"
   tags:
     - install
     - packages
@@ -40,4 +40,3 @@
     - configure
     - traefik
     - files
-
