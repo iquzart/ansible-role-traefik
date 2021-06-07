@@ -1,0 +1,105 @@
+---
+
+- name: "Check for the ACME store file -  {{ traefik_install_dir }}/config/acme/acme.json"
+  stat:
+    path: "{{ traefik_install_dir }}/config/acme/acme.json"
+  register: acme_store
+  tags:
+    - configure
+    - traefik
+    - acme
+
+- name: "Create ACME store file -  {{ traefik_install_dir }}/config/acme/acme.json"
+  file:
+    path: "{{ traefik_install_dir }}/config/acme/acme.json"
+    state: touch
+    mode: 0600
+    group: root
+    owner: root
+  when: not acme_store.stat.exists
+  tags:
+    - configure
+    - traefik
+    - acme
+
+- name: "Check for the log file -  {{ traefik_install_dir }}/logs/access.log"
+  stat:
+    path: "{{ traefik_install_dir }}/logs/access.log"
+  register: log_file
+  tags:
+    - configure
+    - traefik
+    - access.log
+
+- name: "Create the log file -  {{ traefik_install_dir }}/logs/access.log"
+  file:
+    path: "{{ traefik_install_dir }}/logs/access.log"
+    state: touch
+    mode: 0755
+    group: root
+    owner: root
+  when: not log_file.stat.exists
+  tags:
+    - configure
+    - traefik
+    - access.log
+
+- name: "Copy config file -  {{ traefik_install_dir }}/config/traefik.yml"
+  template:
+    src: config/traefik.yml.j2
+    dest: "{{ traefik_install_dir }}/config/traefik.yml"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configure
+    - traefik
+    - traefik.yml
+
+- name: "Copy config file -  {{ traefik_install_dir }}/config/dynamic/middleware.yml"
+  template:
+    src: config/dynamic/middleware.yml.j2
+    dest: "{{ traefik_install_dir }}/config/dynamic/middleware.yml"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configure
+    - traefik
+    - middleware.yml
+
+- name: "Copy config file -  {{ traefik_install_dir }}/config/dynamic/tls.yml"
+  template:
+    src: config/dynamic/tls.yml.j2
+    dest: "{{ traefik_install_dir }}/config/dynamic/tls.yml"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configure
+    - traefik
+    - tls.yml
+
+- name: "Copy docker-compose file -  {{ traefik_install_dir }}/docker-compose.yml"
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ traefik_install_dir }}/docker-compose.yml"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configure
+    - traefik
+    - docker-compose.yml
+
+- name: "Copy env file -  {{ traefik_install_dir }}/.env"
+  template:
+    src: env.j2
+    dest: "{{ traefik_install_dir }}/.env"
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - configure
+    - traefik
+    - env

@@ -1,39 +1,55 @@
-Role Name
+Traefik Reverse Proxy
 =========
 
-A brief description of the role goes here.
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-iquzart.traefik-blue)](https://galaxy.ansible.com/iquzart/traefik)
+![Molecule Test](https://github.com/iquzart/ansible-role-traefik/workflows/Molecule%20Test/badge.svg?) 
+[![License](https://img.shields.io/:license-mit-blue.svg)](https://badges.mit-license.org)
 
-Requirements
-------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Ansible Role for Traefik Reverse Proxy on Container
+
+Features
+---------
+```
+    1. Basic Authentication
+    2. HTTPS Redirection
+    3. IP Whitelist
+    4. Letsencrypt
+    5. TLS 1.2 and 1.3
+    6. Access logs to file
+```
+
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Variable Name| Description | Default |
+|---|---|---|
+| traefik_version  | Traefik Container Version | v2.2.1 |
+| traefik_install_dir  | container confi directory  | /opt/containers/traefik |
+| traefik_domain_name  | traefik UI Domain Name  | example.com |
+| traefik_log_level  | Traefik Log level  | WARN  |
+| traefik_check_new_version | Check new version | false | 
+| traefik_send_anonymous_usage | Send anonymous usage | false |
+| traefik_api_dashboard | Enable or Disable Traefik UI | true |
+| traefik_auth | Basic Auth credentials. htaccess password with MD5/SHA1/Bcrypt  | **** |
+| traefik_ip_white_list | IP source to allow access | 127.0.0.1/32 |
 
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: iquzart.traefik }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
-# ansible-role-traefik
+Muhammed Iqbal <iquzart@hotmail.com>
+

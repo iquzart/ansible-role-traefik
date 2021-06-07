@@ -1,0 +1,35 @@
+---
+- name: Create container, config and log directories
+  block:
+    - name: "Creating container directory - {{ traefik_install_dir }}"
+      file:
+        state: directory
+        path: "{{ traefik_install_dir }}"
+        recurse: yes
+        owner: root
+        group: root
+        mode: "0755"
+
+    - name: "Creating config directories"
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: 0755
+        group: root
+        owner: root
+      loop:
+        - "{{ traefik_install_dir }}/config"
+        - "{{ traefik_install_dir }}/config/acme"
+        - "{{ traefik_install_dir }}/config/dynamic"
+
+    - name: "Creating log directory - {{ traefik_install_dir }}/logs"
+      file:
+        path: "{{ traefik_install_dir }}/logs"
+        state: directory
+        mode: 0755
+        group: root
+        owner: root
+  tags:
+    - configure
+    - traefik
+    - directories

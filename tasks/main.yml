@@ -1,2 +1,42 @@
 ---
 # tasks file for ansible-role-traefik
+
+- name: Install required system packages
+  apt:
+    name:
+      - python3-pip
+    state: present
+    update_cache: yes
+    cache_valid_time: "600"
+  tags:
+    - install
+    - packages
+    - pip
+
+- name: Install Docker Module for Python
+  pip:
+    name: docker
+  tags:
+    - install
+    - packages
+    - pip
+
+- name: Create a network
+  docker_network:
+    name: proxy
+  tags:
+    - configure
+    - docker
+    - network
+
+- include: traefik.config.dirs.yml
+  tags:
+    - configure
+    - traefik
+    - directories
+
+- include: traefik.config.files.yml
+  tags:
+    - configure
+    - traefik
+    - files

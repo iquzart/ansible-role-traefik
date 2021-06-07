@@ -1,0 +1,20 @@
+# Dynamic configuration
+http:
+  middlewares:
+    user-auth:
+      basicAuth:
+        users:
+    {% for key, value in traefik_auth.items() %}
+        - "{{ key }}:{{ value }}"
+    {% endfor %}
+
+    https-redirect:
+      redirectScheme:
+        scheme: https
+        permanent: true
+        port: 443  
+
+    app-whitelist:
+      ipWhiteList:
+        sourceRange:
+         - {{ traefik_ip_white_list }}
