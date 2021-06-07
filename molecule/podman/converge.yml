@@ -4,7 +4,15 @@
     - ubuntu2004
     - debian10
   roles:
-    - role: iquzart.docker    
+    - role: iquzart.docker 
+
+  pre_tasks:
+    - name: docker restart
+      systemd:
+        name: docker
+        state: restarted
+        enabled: true
+
   tasks:
     - name: "Include ansible-role-traefik"
       include_role:

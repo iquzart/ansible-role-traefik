@@ -21,7 +21,7 @@
     - packages
     - pip
 
-- name: Create a network
+- name: Create docker network for proxy
   docker_network:
     name: proxy
   tags:
