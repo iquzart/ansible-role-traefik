@@ -40,3 +40,8 @@
     - configure
     - traefik
     - files
+
+- name: Start traefik container with docker-compose
+  command: /usr/local/bin/docker-compose up -d
+  args:
+    chdir: "{{ traefik_install_dir }}"
