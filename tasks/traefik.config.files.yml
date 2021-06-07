@@ -8,6 +8,7 @@
     - configure
     - traefik
     - acme
+    - molecule-idempotence-notest
 
 - name: "Create ACME store file -  {{ traefik_install_dir }}/config/acme/acme.json"
   file:
@@ -21,6 +22,7 @@
     - configure
     - traefik
     - acme
+    - molecule-idempotence-notest
 
 - name: "Check for the log file -  {{ traefik_install_dir }}/logs/access.log"
   stat:
@@ -30,6 +32,7 @@
     - configure
     - traefik
     - access.log
+    - molecule-idempotence-notest
 
 - name: "Create the log file -  {{ traefik_install_dir }}/logs/access.log"
   file:
@@ -43,6 +46,7 @@
     - configure
     - traefik
     - access.log
+    - molecule-idempotence-notest
 
 - name: "Copy config file -  {{ traefik_install_dir }}/config/traefik.yml"
   template:
@@ -55,6 +59,7 @@
     - configure
     - traefik
     - traefik.yml
+    - molecule-idempotence-notest
 
 - name: "Copy config file -  {{ traefik_install_dir }}/config/dynamic/middleware.yml"
   template:
@@ -67,6 +72,7 @@
     - configure
     - traefik
     - middleware.yml
+    - molecule-idempotence-notest
 
 - name: "Copy config file -  {{ traefik_install_dir }}/config/dynamic/tls.yml"
   template:
@@ -79,6 +85,7 @@
     - configure
     - traefik
     - tls.yml
+    - molecule-idempotence-notest
 
 - name: "Copy docker-compose file -  {{ traefik_install_dir }}/docker-compose.yml"
   template:
@@ -91,6 +98,7 @@
     - configure
     - traefik
     - docker-compose.yml
+    - molecule-idempotence-notest
 
 - name: "Copy env file -  {{ traefik_install_dir }}/.env"
   template:
@@ -103,3 +111,4 @@
     - configure
     - traefik
     - env
+    - molecule-idempotence-notest
