@@ -12,7 +12,21 @@
     mode: 0600
     group: root
     owner: root
-  when: acme_store.stat.exists
+  when: not acme_store.stat.exists
+
+- name: "Check for the log file -  {{ traefik_install_dir }}/logs/access.log"
+  stat:
+    path: "{{ traefik_install_dir }}/logs/access.log"
+  register: log_file
+
+- name: "Create ACME store file -  {{ traefik_install_dir }}/logs/access.log"
+  file:
+    path: "{{ traefik_install_dir }}/logs/access.log"
+    state: touch
+    mode: 0755
+    group: root
+    owner: root
+  when: not log_file.stat.exists
 
 - name: "Copy config file -  {{ traefik_install_dir }}/config/traefik.yml"
   template:

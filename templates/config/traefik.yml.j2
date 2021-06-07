@@ -6,8 +6,8 @@ log:
   level: {{ traefik_log_level }}
 
 global:
-  checkNewVersion: {{ traefik_check_new_version }}
-  sendAnonymousUsage: {{ traefik_send_anonymous_usage }} 
+  checkNewVersion: {{ traefik_check_new_version | lower }}
+  sendAnonymousUsage: {{ traefik_send_anonymous_usage | lower }} 
 ################################################################
 # Access logs configuration
 ################################################################
@@ -25,7 +25,7 @@ accessLog:
 # API and dashboard configuration
 ################################################################
 api:
-  dashboard: {{ traefik_api_dashboard }}
+  dashboard: {{ traefik_api_dashboard | lower }}
 
 entryPoints:
   http:
@@ -51,7 +51,7 @@ providers:
 certificatesResolvers:
   letsencrypt:
     acme:
-      email: {{ traefik_letsencrypt_email }}
+      email: {{ traefik_letsencrypt_email | lower }}
       storage: acme.json
       keyType: EC384
       httpChallenge:
