@@ -11,20 +11,33 @@
   tags:
     - install
     - packages
+    - pip
 
 - name: Install Docker Module for Python
   pip:
     name: docker
+  tags:
+    - install
+    - packages
+    - pip
 
 - name: Create a network
   docker_network:
     name: proxy
+  tags:
+    - configure
+    - docker
+    - network
 
 - include: traefik.config.dirs.yml
   tags:
-    - dirs
+    - configure
+    - traefik
+    - directories
 
 - include: traefik.config.files.yml
   tags:
-    - config_files
+    - configure
+    - traefik
+    - files
 

@@ -29,3 +29,7 @@
         mode: 0755
         group: root
         owner: root
+  tags:
+    - configure
+    - traefik
+    - directories
