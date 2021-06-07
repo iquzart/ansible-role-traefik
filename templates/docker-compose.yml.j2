@@ -24,7 +24,6 @@ services:
       - traefik.http.routers.traefik-http.rule=Host(`traefik.$DOMAIN_NAME`)
       - traefik.http.routers.traefik-http.entrypoints=http
       - traefik.http.routers.traefik-http.middlewares=https-redirect@file
-      - traefik.http.routers.traefik-http.middlewares=user-auth@file
         #- traefik.http.routers.traefik-https-rts.middlewares=demo-whitelist@file
       - traefik.http.routers.traefik-https.rule=Host(`traefik.$DOMAIN_NAME`)
       - traefik.http.routers.traefik-https.entrypoints=https
