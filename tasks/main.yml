@@ -15,7 +15,9 @@
 
 - name: Install Docker Module for Python
   pip:
-    name: docker
+    name:
+      - docker
+      - docker-compose
   tags:
     - install
     - packages
@@ -42,11 +44,11 @@
     - files
 
 - name: Start traefik container with docker-compose
-  command: /usr/local/bin/docker-compose up -d
-  args:
-    chdir: "{{ traefik_install_dir }}"
+  docker_compose:
+    project_src: "{{ traefik_install_dir }}"
+    files: docker-compose.yml
   tags:
     - docker-compose
     - traefik
     - start
-    - skip_ansible_lint
+    - molecule-notest

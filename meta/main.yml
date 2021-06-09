@@ -20,4 +20,5 @@ galaxy_info:
     - docker
     - compose
     - containers
-dependencies: []
+dependencies:
+  - iquzart.docker

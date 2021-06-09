@@ -6,8 +6,3 @@
   roles:
     - iquzart.docker 
     - ansible-role-traefik
-
-  #tasks:
-  #  - name: "Include ansible-role-traefik"
-  #    include_role:
-  #      name: "ansible-role-traefik"
