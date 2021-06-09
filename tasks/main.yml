@@ -51,3 +51,4 @@
     - docker-compose
     - traefik
     - start
+    - molecule-notest
