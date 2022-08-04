@@ -1,10 +1,26 @@
 name: Molecule Test
+
+# Triggers
 on:
   push:
     paths-ignore: 
       - README.md
       - .travis.yml
+    branches: 
+      - main
+  label:
+    types: 
+      - created
+      - edited
+  pull_request:
+    branches:    
+      - master
+      - development
+      - 'releases/**'
+  schedule:
+    - cron: '00 01 * * *'    
 
+# Jobs
 jobs:
   molecule:
     runs-on: ubuntu-latest
