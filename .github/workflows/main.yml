@@ -1,9 +1,17 @@
 name: Molecule Test
+
 on:
+  schedule:
+    - cron: '0 12 * * *'
   push:
+    branches:
+      - '**'
     paths-ignore: 
       - README.md
       - .travis.yml
+    tags:
+      - 'v*.*.*'
+  pull_request:
 
 jobs:
   molecule:
