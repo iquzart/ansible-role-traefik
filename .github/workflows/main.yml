@@ -1,5 +1,6 @@
 name: Molecule Test
 
+# Triggers
 on:
   schedule:
     - cron: '0 12 * * *'
@@ -13,6 +14,7 @@ on:
       - 'v*.*.*'
   pull_request:
 
+# Jobs
 jobs:
   molecule:
     runs-on: ubuntu-latest

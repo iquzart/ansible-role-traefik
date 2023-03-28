@@ -7,18 +7,24 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
-        - Focal
-        - Disco
-        - Bionic
+        - focal
+        - disco
+        - bionic
+        - jammy
     - name: Debian
       versions:
         - buster
         - stretch
+    - name: EL
+      versions:
+        - "7"
+        - "8"
+        - "9"
+        - all
   galaxy_tags:
     - traefik
     - proxy
     - docker
     - compose
     - containers
-dependencies:
-  - iquzart.docker
+dependencies: []
