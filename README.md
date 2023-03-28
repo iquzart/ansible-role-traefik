@@ -1,9 +1,13 @@
 Traefik Reverse Proxy
 =========
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-iquzart.traefik-blue)](https://galaxy.ansible.com/iquzart/traefik)
+
 ![Molecule Test](https://github.com/iquzart/ansible-role-traefik/workflows/Molecule%20Test/badge.svg?) 
-[![License](https://img.shields.io/:license-mit-blue.svg)](https://badges.mit-license.org)
+[![Role Name](https://img.shields.io/ansible/role/55261?label=Role%20Name&logo=ansible&style=flat-square)](https://galaxy.ansible.com/iquzart/traefik)
+[![Quality Score](https://img.shields.io/ansible/quality/55261?label=Quality%20Score&logo=ansible&style=flat-square)](https://galaxy.ansible.com/iquzart/traefik)
+[![Role Downloads](https://img.shields.io/ansible/role/d/55261?label=Role%20Downloads&logo=ansible&style=flat-square)](https://galaxy.ansible.com/iquzart/traefik)
+![Release](https://img.shields.io/github/v/release/iquzart/ansible-role-traefik?style=flat-square)
+[![License](https://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://badges.mit-license.org)
 
 
 Ansible Role for Traefik Reverse Proxy on Container
