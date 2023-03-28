@@ -11,7 +11,7 @@ traefik_log_level: WARN                          # (Default: error) DEBUG, INFO,
 traefik_check_new_version: false
 traefik_send_anonymous_usage: false
 traefik_api_dashboard: true
-traefik_letsencrypt_email: iquzart@hotmail.com
+traefik_letsencrypt_email: email@example.com
 traefik_auth:
     admin: $2y$10$ah21mM.4UzSRSzEiKQx0gu7weRmYKur6ItMtUjOzIEofdznhLBWkW
     appadmin: $2y$10$gwQ2/it6NaXkKkih8X4cqegbGmsMiTOwaYAhOIZ4RrK59V9ZcE.sm

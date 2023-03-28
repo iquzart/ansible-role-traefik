@@ -2,23 +2,17 @@ name: Molecule Test
 
 # Triggers
 on:
+  schedule:
+    - cron: '0 12 * * *'
   push:
+    branches:
+      - '**'
     paths-ignore: 
       - README.md
       - .travis.yml
-    branches: 
-      - main
-  label:
-    types: 
-      - created
-      - edited
+    tags:
+      - 'v*.*.*'
   pull_request:
-    branches:    
-      - master
-      - development
-      - 'releases/**'
-  schedule:
-    - cron: '00 01 * * *'    
 
 # Jobs
 jobs:
@@ -37,4 +31,4 @@ jobs:
           pip install -r requirements.txt
       - name: Test with molecule
         run: |
-          molecule test
+          molecule test -s podman
