@@ -18,3 +18,14 @@ http:
       ipWhiteList:
         sourceRange:
          - {{ traefik_ip_white_list }}
+
+    redirect-http-no-www:
+      redirectRegex:
+        regex: "^http?://www\\.(.+)"
+        replacement: "http://${1}"
+        permanent: true
+    redirect-https-no-www:
+      redirectRegex:
+        regex: "^https?://www\\.(.+)"
+        replacement: "https://${1}"
+        permanent: true
