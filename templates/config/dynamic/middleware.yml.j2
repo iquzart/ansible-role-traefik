@@ -24,8 +24,21 @@ http:
         regex: "^http?://www\\.(.+)"
         replacement: "http://${1}"
         permanent: true
+
     redirect-https-no-www:
       redirectRegex:
         regex: "^https?://www\\.(.+)"
         replacement: "https://${1}"
+        permanent: true
+            
+    redirect-http-to-www:
+      redirectRegex:
+        regex: "^http?://(?:www\\.)?(.+)"
+        replacement: "http://www.${1}"
+        permanent: true
+    
+    redirect-https-to-www:
+      redirectRegex:
+        regex: "^https?://(?:www\\.)?(.+)"
+        replacement: "https://www.${1}"
         permanent: true
